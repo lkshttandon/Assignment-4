@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #ttl{
+            font:bold;
+            font-family: cursive;
+            font-size: 15pt;
+
+            text-align: center;
+            margin-right: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Stock Manager</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" style="border:2px dotted navy;background-color: slategrey;color:wheat">
+                <form>
+                    <div class="form-group">
+                        <label>ID</label>
+                        <p id = "id1">0</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Code</label>
+                        <input type="number" class="form-control" id ="code" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" class="form-control" id ="quantity" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" class="form-control" id ="price" required/>
+                    </div>
+                    <div>
+                    <button type="button" class="btn btn-primary" style="border-radius: 15px;margin-left:25%;margin-bottom:10px" onclick="adddata()" id="submit"><i class="fa fa-paper-plane"></i> Enter Data</button>
+                    
+                    <button type="button" class="btn btn-primary" style="border-radius: 15px;margin-left:25%;margin-bottom:10px" onclick="total1()" id="total"> Total Amount</button> </div>
+                    <div><p id="ttl"></p></div>
+
+                    <button type="button" class="btn btn-primary" style="border-radius: 15px;margin-left:25px;margin-bottom:10px" onclick="modal1()" id="order" data-toggle="modal" data-target="#order1"> Place Order</button>
+                    <button type="button" class="btn btn-primary" style="border-radius: 15px;margin-bottom:10px" onclick="modal2()" id="invoice" data-toggle="modal" data-target="#order2" disabled> Print Invoice</button>
+
+                    
+                </form>
+            </div>
+            <div class="col-md-6 offset-2">
+                <table align="center" width="100%" border="1" style="background-color: white">
+                    <tr style="font: bold;font-size:15pt;text-align:center;color: wheat;background-color: green">
+                        <th>ID</th>
+                        <th>Code</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="order1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Please Enter your details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form class="contact">
+                    <div class="form-group">
+                        <label>Adress</label>
+                        <input type="text" id = "line1" placeholder="Line 1" required style="width: 100%;border-radius: 2px"/>
+                        <input type="text" id = "line2" placeholder="Line 2" style="width: 100%;border-radius: 2px"/>
+                        <input type="text" id = "line3" placeholder="Line 3" style="width: 100%;border-radius: 2px"/>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id = "phone1" class="form-control" placeholder="#PhoneNumber" required/>
+                    </div>
+                    <div class="form-group">
+                            <label>Zip Code</label>
+                            <input type="text" class="form-control" placeholder="#ZipCode" required/>
+                        </div>
+                    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="address()" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="order2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Invoice</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3" style="border-right: 2px solid black">
+                        <h5>
+                            Address
+                        </h5>
+                        <p id = "addr1"></p>
+                        <h5>Phone #</h5>
+                        <p id = "phn1"></p>
+                    </div>
+                    <div class="col-md-6 offset - 3">
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <script>
+        var sum = 0;
+        var id = 0;
+
+        var count =(function(){
+            return ++id;
+        })
+
+        function adddata(){
+
+            document.getElementById('id1').innerHTML = count();
+            var code = document.getElementById("code").value;
+            var quant = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+            var table = document.getElementsByTagName('table')[0];
+            
+            var newRow = table.insertRow(table.rows.length);
+            
+            var cel1 = newRow.insertCell(0);
+            var cel2 = newRow.insertCell(0);
+            var cel3 = newRow.insertCell(0);
+            var cel4 = newRow.insertCell(0);
+
+            cel4.innerHTML = id;
+            cel3.innerHTML = code;
+            cel2.innerHTML = quant;
+            cel1.innerHTML = price;
+
+            sum += parseInt(quant*price);
+            
+        }
+
+
+
+        function total1(){
+            document.getElementById('ttl').innerHTML="Total Amount: " + (sum);
+        }
+
+        function modal1(){
+            document.getElementById('invoice').disabled = false;
+        }
+
+        function address(){
+            var line1 = document.getElementById('line1').value;
+            var line2 = document.getElementById('line2').value;
+            var line3 = document.getElementById('line3').value;
+            var phone1 = document.getElementById('phone1').value;
+
+            document.getElementById('addr1').innerHTML = line1 + " <br>" + line2 + " <br>" + line3 + " <br>";
+            document.getElementById('phn1').innerHTML = phone1;
+
+            
+        }
+        function modal2(){
+
+            
+            document.getElementById('table23').innerHTML =  table;
+
+        }
+
+        $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+        })
+        
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
