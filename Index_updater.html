@@ -54,7 +54,7 @@
                 </form>
             </div>
             <div class="col-md-6 offset-2">
-                <table align="center" width="100%" border="1" style="background-color: white">
+                <table name ="table1" align="center" width="100%" border="1" style="background-color: white">
                     <tr style="font: bold;font-size:15pt;text-align:center;color: wheat;background-color: green">
                         <th>ID</th>
                         <th>Code</th>
@@ -121,8 +121,17 @@
                         <h5>Phone #</h5>
                         <p id = "phn1"></p>
                     </div>
-                    <div class="col-md-6 offset - 3">
-                        
+                    <div class="col-md-9
+                     offset - 3">
+                            <table align="center" name="table2" width="100%" border="1" style="background-color: white">
+                                    <tr style="font: bold;font-size:10pt;text-align:center;color: wheat;background-color: green;width:100%">
+                                        <th>ID</th>
+                                        <th>Code</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </table>
+                                <p id="ttl1" style="background-color: green;color:white;font-size:13pt"></p>
                     </div>
                 </div>
             </div>
@@ -149,19 +158,32 @@
             var code = document.getElementById("code").value;
             var quant = document.getElementById("quantity").value;
             var price = document.getElementById("price").value;
-            var table = document.getElementsByTagName('table')[0];
+            var table = document.getElementsByName('table1')[0];
+            var table1 = document.getElementsByName('table2')[0];
+            
             
             var newRow = table.insertRow(table.rows.length);
+            var newRow1 = table1.insertRow(table1.rows.length);
             
             var cel1 = newRow.insertCell(0);
             var cel2 = newRow.insertCell(0);
             var cel3 = newRow.insertCell(0);
             var cel4 = newRow.insertCell(0);
+            var cel11 = newRow1.insertCell(0);
+            var cel21= newRow1.insertCell(0);
+            var cel31 = newRow1.insertCell(0);
+            var cel41 = newRow1.insertCell(0);
+            
+
 
             cel4.innerHTML = id;
             cel3.innerHTML = code;
             cel2.innerHTML = quant;
             cel1.innerHTML = price;
+            cel41.innerHTML = id;
+            cel31.innerHTML = code;
+            cel21.innerHTML = quant;
+            cel11.innerHTML = price;
 
             sum += parseInt(quant*price);
             
@@ -171,6 +193,8 @@
 
         function total1(){
             document.getElementById('ttl').innerHTML="Total Amount: " + (sum);
+            
+            
         }
 
         function modal1(){
@@ -186,13 +210,9 @@
             document.getElementById('addr1').innerHTML = line1 + " <br>" + line2 + " <br>" + line3 + " <br>";
             document.getElementById('phn1').innerHTML = phone1;
 
-            
-        }
-        function modal2(){
+            document.getElementById('ttl1').innerHTML="Total Amount: " + (sum);
 
             
-            document.getElementById('table23').innerHTML =  table;
-
         }
 
         $('#myModal').on('shown.bs.modal', function () {
