@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-    td{
-        border:10px solid white;
+    td {
+        border: 10px solid white;
     }
-    table{
+
+    table {
         width: fit-content;
     }
 </style>
+
 <body>
-    
+
     <div class="conatiner" style="background-color: rgb(19, 201, 201)">
-            <div style="text-align: center"><h1>Survey form</h1></div>
+        <div style="text-align: center">
+            <h1>Survey form</h1>
+        </div>
         <div class="col-md-10 col-sm-10 offset-1" style="background-color: white">
-            
+
             <div style="text-align: center">
                 <br>
                 Let us know how we can improve freeCodeCamp
@@ -32,91 +38,236 @@
                     <table>
                         <tr>
                             <td align="right">*Name:</td>
-                            <td><input type="text" class="form-control" style="height:30px" placeholder="Enter your Name"/></td>
-                            
+                            <td><input type="text" class="form-control" style="height:30px"
+                                    placeholder="Enter your Name" id="name1" /></td>
+
                         </tr>
                         <tr>
                             <td align="right">*Email:</td>
-                            <td><input type="text" class="form-control" style="height:30px" placeholder="Enter your Email"/></td>
+                            <td><input type="text" class="form-control" style="height:30px"
+                                    placeholder="Enter your Email" id="email1" /></td>
                         </tr>
                         <tr>
                             <td align="right">*Age:</td>
-                            <td><input type="text" class="form-control" style="height:30px" placeholder="Age"/></td>
+                            <td><input type="text" class="form-control" style="height:30px" placeholder="Age"
+                                    id="age1" /></td>
                         </tr>
                         <tr>
                             <td>Which option best describes your current role?</td>
-                            <td><select class="form-control" style="background-color: lightgray">
-                                <option>
-                                    Student
-                                </option>
-                                <option>
-                                    Employee
-                                </option>
-                            </select></td>
-                        </tr>
-                        <tr><td align="right">How likely is that you would recommend <br>freeCodeCamp to a friend?</td>
-                        <td>
-                                <br><input type="radio"/>
-                                Definitely<br>
-                                <input type="radio"/>
-                                Maybe<br>
-                                <input type="radio"/>
-                                Not Sure<br>
-
-                        </td>
-                        </tr>
-                        <tr>
-                                <td align="right">What do you like most in FCC:</td>
-                                <td><select class="form-control" style="background-color: lightgray" >
+                            <td><select class="form-control" id="role" style="background-color: lightgray">
                                     <option>
-                                        Select an option
+                                        Student
                                     </option>
                                     <option>
                                         Employee
                                     </option>
-                            </select></td>
+                                </select></td>
                         </tr>
                         <tr>
-                                <td style="vertical-align: baseline" align="right">Things that should be improved in the future<br>(Check all that apply):</td>
-                                <td><input class="form-check-input" type="checkbox">
-                                  Front-end Projects<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Back-end projects<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Data Visualization<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Challenges<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Open Source Community<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Gitter Help Rooms<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Videos<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  City Meetups<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Wiki<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Forum<br>
-                                  <input class="form-check-input" type="checkbox">
-                                  Additional Courses<br>
+                            <td align="right">How likely is that you would recommend <br>freeCodeCamp to a friend?</td>
+                            <td>
+                                <br><input type="radio" name="recom" value="Definitely"/>
+                                Definitely<br>
+                                <input type="radio" name="recom" value="Maybe"/>
+                                Maybe<br>
+                                <input type="radio" name="recom" value="Not Sure"/>
+                                Not Sure<br>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">What do you like most in FCC:</td>
+                            <td><select class="form-control" id="FCC" style="background-color: lightgray">
+                                    <option>
+                                        Select an option
+                                    </option>
+                                    <option>
+                                        Something
+                                    </option>
+                                    <option>
+                                        Nothing
+                                    </option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: baseline" align="right">Things that should be improved in the
+                                future<br>(Check all that apply):</td>
+                            <td><input class="form-check-input" type="checkbox" name="improve" value="Front-end projects">
+                                Front-end Projects<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Back-end Projects">
+                                Back-end projects<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Data Visualization">
+                                Data Visualization<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Challenges">
+                                Challenges<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Open Source Community">
+                                Open Source Community<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Gitter Help Room">
+                                Gitter Help Rooms<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Videos">
+                                Videos<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="City Meetups">
+                                City Meetups<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Wiki">
+                                Wiki<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Forum">
+                                Forum<br>
+                                <input class="form-check-input" name="improve" type="checkbox" value="Additional Courses">
+                                Additional Courses<br>
                         </tr>
                         <tr>
                             <td style="vertical-align: baseline" align="right">Any Comments or Suggestions?</td>
-                            <td><textarea class="form-control" placeholder="Enter your comments here..." rows="4" cols="40"></textarea></td>
+                            <td><textarea class="form-control" placeholder="Enter your comments here..." rows="4" cols="40" id="suggestion"></textarea></td>
                         </tr>
                         <tfoot>
-                            <td colspan ="2" align="center"><button type="button" class="btn btn-primary">Submit</button></td>
+                            <td colspan="2" align="center"><button type="button" class="btn btn-primary"
+                                    onclick="modal1()">Submit</button>
+                                <button type="button" class="btn btn-primary" onclick="modal2()" id="invoice" data-toggle="modal" data-target="#order2" disabled>Show data</button>
+                            </td>
+
                         </tfoot>
                     </table>
                 </div>
             </form>
-    </div>
-    <div class="col-md-3"></div>
+            <div class="modal fade" id="order2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">My Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td align="right"><p>Name:</p></td>
+                                                <td>
+                                                    <p id="name2"></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right"><p>Email:</p></td>
+                                                <td>
+                                                    <p id="email2"></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right"><p>Age:</p></td>
+                                                <td>
+                                                    <p id="age2"></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right"><p>Current Role:</p></td>
+                                                <td>
+                                                    <p id="crole2"></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right"><p>Would you recommend:</p></td>
+                                                <td>
+                                                    <p id="recom2"></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                    <td align="right"><p>Like in FCC:</p></td>
+                                                    <td>
+                                                        <p id="fcc2"></p>
+                                                    </td>
+                                            </tr>
+                                            <tr>
+                                                    <td align="right" style="vertical-align: baseline"><p>To be improved:</p></td>
+                                                    <td>
+                                                        <p id="improve2"></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                        <td align="right" style="vertical-align: baseline"><p>Any Comments:</p></td>
+                                                        <td>
+                                                            <p id="cmt2"></p>
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
     </div><br><br>
-    
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function modal1() {
+            document.getElementById('invoice').disabled = false;
+        }
+        function modal2() {
+            var name = document.getElementById('name1').value;
+            document.getElementById('name2').innerHTML = name;
+            var email = document.getElementById('email1').value;
+            document.getElementById('email2').innerHTML = email;
+            var age = document.getElementById('age1').value;
+            document.getElementById('age2').innerHTML = age;
+
+            var ele = document.getElementsByName('recom'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                if(ele[i].checked) 
+                document.getElementById("recom2").innerHTML
+                        = " "+ele[i].value;
+                        }
+
+            var names = document.getElementsByName('improve');
+            document.getElementById('improve2').innerHTML ="";
+            names.forEach(x =>{
+                if(x.checked){
+                    document.getElementById('improve2').innerHTML += x.value+" <br>"
+                }
+            })
+            var x = document.getElementById('FCC').value;
+            var y = document.getElementById('role').value;
+            document.getElementById('crole2').innerHTML = y;
+            document.getElementById('fcc2').innerHTML = x;
+
+            var z =document.getElementById('suggestion').value;
+            if(z == ''){
+                document.getElementById('cmt2').innerHTML = "None";
+            }else
+            {
+            document.getElementById('cmt2').innerHTML = z;
+            }
+        }
+
+    /*   var student =  {};
+        Object.defineProperty(student,"fullName",{
+            set: function(name){return this.fullName;};
+        });
+        Object.defineProperty(student,"fullName",{
+            get : function(){return this.fullName;} 
+        });
+        student.fullName="Lakshit";
+        console.log(student);*/
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
